@@ -1,0 +1,3 @@
+insert into library
+values((select id from dba47 where name='최종원'),'비용기반의 오라클 원리',sysdate,'')
+/
