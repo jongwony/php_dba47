@@ -3,40 +3,40 @@
 class Frame {
 
 	public function headernav(){
-		$h = "
-<!doctype html>\n
-<head> \n
-<meta charset='UTF-8'> \n
-<title> 오라클47기 </title> \n
-<link rel='stylesheet' href='/css/style.css' /> \n
-<link rel='stylesheet' href='/css/animate.min.css' />\n
-<link rel='stylesheet' href='/css/zenburn.css' /> \n
-<script type='text/javascript' src='/js/jquery.min.js'></script> \n
-<script type='text/javascript' src='/js/script.js'></script> \n
-<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js'></script> \n
-</head> \n
-<body> \n
-<ul class='nav'> \n
-<li><a href=/>Home</a></li> \n
-<li><a href='/query.php'>Query</a></li> \n
-<li><a href='/expenditures.php'>지출내역</a></li> \n
-<li><a href='/hogu.php'>명예의 전당</a></li>\n
-<li><a href='/capital.php'>공금현황</a></li>\n
-<li><a href='/library.php'>사서</a></li>\n
-<li style='float:right'><a href=/about.php>About</a></li>\n
-<li style='float:right'><a href=/dba47.php>오라클 47기</a></li> \n
-</ul> \n
-";
-		return $h;
+		return <<< EOF
+<!doctype html>
+<head>
+<meta charset='UTF-8'>
+<title> 오라클47기 </title>
+<link rel='stylesheet' href='/css/style.css' />
+<link rel='stylesheet' href='/css/animate.min.css' />
+<link rel="stylesheet" href="/css/zenburn.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script type='text/javascript' src='/js/jquery.min.js'></script>
+<script type='text/javascript' src='/js/script.js'></script>
+<script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js'></script>
+</head>
+<body> 
+<ul class='nav'>
+<li><a href=/>Home</a></li>
+<li><a href='/query.php'>Query</a></li>
+<li><a href='/expenditures.php'>지출내역</a></li>
+<li><a href='/hogu.php'>명예의 전당</a></li>
+<li><a href='/capital.php'>공금현황</a></li>
+<li><a href='/library.php'>사서</a></li>
+<li style='float:right'><a href=/about.php>About</a></li>
+<li style='float:right'><a href=/dba47.php>오라클 47기</a></li>
+</ul>
+EOF;
+
 	}
 
 	public function footer(){
-		$f = "</body>\n</html>";
-		return $f;
+		return "</body>\n</html>";
 	}
 	
 	public function querytab($sql, $array){
-		$conn = oci_connect('guest', 'guest', 'localhost/orcl', 'AL32UTF8');
+		$conn = oci_connect('guest', 'guest', 'orcl.cruh9f1vmrkz.ap-northeast-2.rds.amazonaws.com:1521/orcl', 'AL32UTF8');
 		if (!$conn) {
  			 $e = oci_error();
    			 trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);

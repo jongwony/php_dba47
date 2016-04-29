@@ -18,12 +18,4 @@ print "</div>";
 $array = array(1,2,3,4);
 $sql = 'select * from dba47.library';
 
-?>
-
-<script>hljs.initHighlightingOnLoad();</script>
-<script>function querycallback() {
-//document.getElementById("sqlquery").innerHTML = "<?php $frame->querytab($sql, $array); ?>";
-}</script>
-
-<?php
 print	$frame->footer();
